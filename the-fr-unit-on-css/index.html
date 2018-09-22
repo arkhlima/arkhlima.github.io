@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="id" class="bg-main">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="robots" content="index,follow">
+
+	<title>The Fr Unit on CSS — Khamil Aryansyah</title>
+	<meta name="description" content="Tulisan ini akan membahas mengenai satuan fr yang juga masih berhubungan dengan 2 tulisan sebelumnya. Tapi sebelum itu, ada sebuah contoh studi kasus sederhana.">
+
+	<meta property="og:locale" content="en_US">
+	<meta property="og:site_name" content="Khamil Aryansyah">
+	<meta property="og:type" content="article">
+	<meta name="twitter:image" content="/assets/img/the-fr-unit-on-css/fraction-tiles.jpg">
+	<meta property="og:url" content="https://arkhlima.github.io/the-fr-unit-on-css/">
+	<meta property="og:title" content="The Fr Unit on CSS">
+	<meta property="og:description" content="Tulisan ini akan membahas mengenai satuan fr yang juga masih berhubungan dengan 2 tulisan sebelumnya. Tapi sebelum itu, ada sebuah contoh studi kasus sederhana.">
+
+	<meta name="twitter:card" content="summary-large">
+	<meta name="twitter:image" content="/assets/img/the-fr-unit-on-css/fraction-tiles.jpg">
+	<meta name="twitter:site" content="@arkhlima">
+	<meta name="twitter:url" content="https://arkhlima.github.io/the-fr-unit-on-css/">
+	<meta name="twitter:title" content="The Fr Unit on CSS">
+	<meta name="twitter:description" content="Tulisan ini akan membahas mengenai satuan fr yang juga masih berhubungan dengan 2 tulisan sebelumnya. Tapi sebelum itu, ada sebuah contoh studi kasus sederhana.">
+
+	<meta name="theme-color" content="#22292f" />
+
+	<link rel="shortcut icon" href="https://arkhlima.github.io/assets/img/icon.png">
+
+	<link rel="stylesheet" href="/assets/css/main.min.css">
+
+	<link rel="canonical" href="https://arkhlima.github.io/the-fr-unit-on-css/">
+	<link rel="alternate" type="application/rss+xml" title="Khamil Aryansyah" href="/%20/feed.xml">
+</head>
+
+<body class="ff1 dust f4 lh-copy site xyz">
+	
+	<main class="content mw7 center ph3 ph4-ns">
+		
+<nav class="nav z-999 mw7 inline-flex fixed" style="top:3rem;">
+	<a class="spectrum-l glow grow-large sun-small br-100" href="/"></a>
+</nav>
+ 
+		<article class="article" itemscope itemtype="http://schema.org/Article">
+	<meta itemprop="datePublished" content="2017-12-20">
+	<meta itemprop="author" content="Khamil Aryansyah">
+	<meta itemprop="headline" content="The Fr Unit on CSS">
+	
+<header class="article-header header relative mv6 tl">
+	
+	<time class="article-time ff2 fw7 f5 ttu light-main" datetime="2017-12-20T00:00:00+07:00" itemprop="datePublished">Dec 20 2017</time>
+	
+	<h1 class="article-title spectrum-o main nb3 mt3 f-5 lh-solid">The Fr Unit on CSS</h1>
+</header>
+
+	
+	<figure class="article-featured mv5 center">
+		<img class="article-featured-img prst1" src="/assets/img/the-fr-unit-on-css/fraction-tiles.jpg" alt="Fraction Tiles" />
+	</figure>
+	
+	<div class="article-body relative mb6" data-first="T" itemprop="articleBody">
+		<p>Tulisan ini akan membahas mengenai satuan <code class="highlighter-rouge">fr</code> yang juga masih berhubungan dengan 2 tulisan sebelumnya. Tapi sebelum itu, ada sebuah contoh studi kasus sederhana.</p>
+
+<blockquote>
+  <p>Pertama, bagaimana caranya menangani sebuah grid layout dengan empat kolom di dalamnya yang masing-masing memiliki ukuran lebar proporsional dengan ukuran lebar grid-containernya?</p>
+</blockquote>
+
+<p data-height="300" data-theme-id="12948" data-slug-hash="jYVLeO" data-default-tab="result" data-user="arkhlima" data-embed-version="2" data-pen-title="Grid Demo #1 (blogging purpose)" class="codepen"></p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.grid-container</span> <span class="p">{</span>
+  <span class="py">grid-template-columns</span><span class="p">:</span> <span class="nb">repeat</span><span class="p">(</span><span class="m">4</span><span class="p">,</span> <span class="n">calc</span><span class="p">(</span><span class="m">100%</span><span class="p">/</span><span class="m">4</span><span class="p">));</span>
+                      <span class="c">/* 
+                         repeat(jumlah_kolom, calc(lebar_grid-container/jumlah_kolom));
+                         atau
+                         calc(lebar_grid-container/jumlah_kolom) calc(lebar_grid-container/jumlah_kolom) calc(lebar_grid-container/jumlah_kolom) calc(lebar_grid-container/jumlah_kolom);
+                      */</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Ya, caranya bisa dengan <strong>mengalkulasikan ukuran lebar grid-container yang kemudian dibagi dengan berapa banyak jumlah kolom yang dibutuhkan.</strong> Dalam kasus ini saya membaginya dengan empat kolom.</p>
+
+<blockquote>
+  <p>Kedua, beri <code class="highlighter-rouge">grid-gap</code> (jarak) antar kolom dengan nilai <code class="highlighter-rouge">16px</code>!</p>
+</blockquote>
+
+<p data-height="320" data-theme-id="12948" data-slug-hash="eyBrxz" data-default-tab="result" data-user="arkhlima" data-embed-version="2" data-pen-title="Grid Demo #2 (blogging purpose)" class="codepen"></p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.grid-container</span> <span class="p">{</span>
+  <span class="py">grid-template-columns</span><span class="p">:</span> <span class="nb">repeat</span><span class="p">(</span><span class="m">4</span><span class="p">,</span> <span class="n">calc</span><span class="p">(</span><span class="m">100%</span><span class="p">/</span><span class="m">4</span><span class="p">));</span>
+  <span class="py">grid-gap</span><span class="p">:</span> <span class="m">16px</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Overflowed! Ini dikarenakan saya baru saja <strong>mendeklarasikan <code class="highlighter-rouge">grid-gap</code> dengan nilai <code class="highlighter-rouge">16px</code> untuk memberikan jarak antar kolom. Sedangkan ukuran lebar setiap kolom saja sudah proporsional dengan ukuran grid-container yang ada (minus <code class="highlighter-rouge">grid-gap</code>).</strong></p>
+
+<p>Dan apa yang harus dilakukan sekarang adalah mengalkulasi ulang ukuran lebar setiap kolom yang dikurangi dengan nilai <code class="highlighter-rouge">grid-gap</code>.</p>
+
+<p data-height="300" data-theme-id="12948" data-slug-hash="mpOjvm" data-default-tab="result" data-user="arkhlima" data-embed-version="2" data-pen-title="Grid Demo #3 (blogging purpose)" class="codepen"></p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">grid-template-columns</span><span class="o">:</span> <span class="nt">repeat</span><span class="o">(</span><span class="nt">4</span><span class="o">,</span> <span class="nt">calc</span><span class="o">(</span><span class="nt">100</span><span class="o">%/</span><span class="nt">4</span> <span class="nt">-</span> <span class="nt">16px</span><span class="o">));</span>
+                    <span class="c">/* repeat(jumlah_kolom, calc(lebar_grid-container/jumlah_kolom - grid-gap)); */</span>
+</code></pre></div></div>
+
+<p>Hasilnya masih belum sesuai karena sekarang terdapat ruang kosong tersisa di bagian kanan. <strong>Logika untuk menanganinya adalah ruang kosong yang tersisa di bagian kanan itu seharusnya dialokasikan saja untuk menambah ukuran lebar masing-masing dari empat kolom tersebut.</strong></p>
+
+<p>Dan itu sangatlah memungkinkan.</p>
+
+<p data-height="300" data-theme-id="12948" data-slug-hash="NXbLqL" data-default-tab="result" data-user="arkhlima" data-embed-version="2" data-pen-title="Grid Demo #4 (blogging purpose)" class="codepen"></p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">grid-template-columns</span><span class="o">:</span> <span class="nt">repeat</span><span class="o">(</span><span class="nt">4</span><span class="o">,</span> <span class="nt">calc</span><span class="o">(</span><span class="nt">100</span><span class="o">%/</span><span class="nt">4</span> <span class="o">+</span> <span class="nt">calc</span><span class="o">(</span><span class="nt">16px</span><span class="o">/</span><span class="nt">4</span> <span class="nt">-</span> <span class="nt">16px</span><span class="o">)));</span>
+                    <span class="c">/* repeat(jumlah_kolom, calc(lebar_grid-container/jumlah_kolom - calc(grid-gap/jumlah_kolom - grid-gap))); */</span>
+</code></pre></div></div>
+
+<p>Berhasil! Dan ini tidaklah sulit, namun cukup merepotkan dan akan lebih merepotkan lagi ketika dihadapkan dengan studi kasus yang lebih kompleks. Lagipula, saat ini studi kasus di atas dapat ditangani dengan cara yang tidak sulit dan tidak merepotkan, yaitu dengan menggunakan satuan <code class="highlighter-rouge">fr</code>.</p>
+
+<hr />
+
+<h2 id="whats-the-fr-unit">What’s the fr unit?</h2>
+<blockquote>
+  <p>Satuan <code class="highlighter-rouge">fr</code> (fraction) adalah satuan yang mewakili pecahan-pecahan dari ruang kosong yang tersisa di dalam suatu grid-container.</p>
+</blockquote>
+
+<p data-height="730" data-theme-id="12948" data-slug-hash="jYBxze" data-default-tab="result" data-user="arkhlima" data-embed-version="2" data-pen-title="Grid Demo #5 (blogging purpose)" class="codepen"></p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">grid-template-columns</span><span class="o">:</span> <span class="nt">1fr</span> <span class="nt">1fr</span> <span class="nt">1fr</span><span class="o">;</span> <span class="c">/* basic usage */</span>
+</code></pre></div></div>
+
+<p>Berapapun ukuran baris atau kolom yang dideklarasikan dengan satuan <code class="highlighter-rouge">fr</code> akan memiliki ukuran proporsional dan akurat mengikuti ukuran grid-containernya, yang dihasilkan dari proses rendering browser berdasarkan jumlah dan ukuran setiap baris atau kolom, ukuran grid-container, ukuran jarak antar baris atau kolom, hingga ruang kosong yang tersisa di dalam grid-container tersebut.</p>
+
+<p data-height="300" data-theme-id="12948" data-slug-hash="dJRdEZ" data-default-tab="result" data-user="arkhlima" data-embed-version="2" data-pen-title="Grid Demo #5b (blogging purpose)" class="codepen"></p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.grid-container</span> <span class="p">{</span>
+  <span class="nl">width</span><span class="p">:</span> <span class="m">500px</span><span class="p">;</span>
+  <span class="py">grid-template-columns</span><span class="p">:</span> <span class="m">3</span><span class="n">fr</span> <span class="m">2</span><span class="n">fr</span> <span class="m">1</span><span class="n">fr</span> <span class="m">1</span><span class="n">fr</span> <span class="m">1</span><span class="n">fr</span> <span class="m">1</span><span class="n">fr</span> <span class="m">1</span><span class="n">fr</span><span class="p">;</span>
+                      <span class="c">/* 
+                         -----------------------------------
+                         3fr+2fr+1fr+1fr+1fr+1fr+1fr = 10fr
+                         -----------------------------------
+
+                         3fr/10fr * 500px = 150px
+                         2fr/10fr * 500px = 100px
+                         1fr/10fr * 500px =  50px
+                         1fr/10fr * 500px =  50px
+                         1fr/10fr * 500px =  50px
+                         1fr/10fr * 500px =  50px
+                         1fr/10fr * 500px =  50px
+                         ------------------------- +
+                                            500px
+                      */</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="why-should-i-use-the-fr-unit">Why should I use the fr unit?</h2>
+
+<p>Sebelumnya saya mengatakan bahwa studi kasus di atas seharusnya dapat ditangani dengan cara yang tidak sulit dan tidak merepotkan dengan menggunakan satuan <code class="highlighter-rouge">fr</code>.</p>
+
+<p>Let’s prove it!</p>
+
+<p data-height="1100" data-theme-id="12948" data-slug-hash="MrpRbP" data-default-tab="result" data-user="arkhlima" data-embed-version="2" data-pen-title="Grid Demo #8 (blogging purpose)" class="codepen"></p>
+
+<p>Menggunakan satuan <code class="highlighter-rouge">%</code> untuk menangani grid layout dengan ukuran baris atau kolom yang proporsional di dalam studi kasus sederhana di atas saja masih cukup merepotkan, karena masih harus melakukan perhitungan matematika untuk mengalkulasi antara jumlah dan ukuran setiap baris atau kolom, ukuran grid-container, ukuran jarak antar baris atau kolom, hingga ruang kosong yang tersisa di dalam grid-container tersebut, dan lain-lain.</p>
+
+<p>Beda halnya dengan menggunakan satuan <code class="highlighter-rouge">fr</code>, di mana sederhananya seperti:</p>
+
+<blockquote>
+  <p>Kita tentukan kebutuhan dan spesifikasi grid layout yang diinginkan, selanjutnya biarkan browser yang menangani perhitungan matematikanya.</p>
+</blockquote>
+
+<p>Karena pada dasarnya satuan <code class="highlighter-rouge">fr</code> memang disediakan khusus untuk menangani grid layout agar lebih mudah dan tidak merepotkan.</p>
+
+<hr />
+
+<h3 id="combined-units">Combined units</h3>
+
+<blockquote>
+  <p>Satuan <code class="highlighter-rouge">fr</code> pun dapat dikombinasikan dengan satuan CSS lainnya seperti <code class="highlighter-rouge">%</code>, <code class="highlighter-rouge">px</code>, <code class="highlighter-rouge">rem</code>, dan sebagainya.</p>
+</blockquote>
+
+<p>Contohnya sebuah grid-container berukuran lebar <code class="highlighter-rouge">500px</code> yang di dalamnya terdapat tiga kolom. Salah satu kolomnya dideklarasikan dengan ukuran lebar <code class="highlighter-rouge">100px</code>, sedangkan ukuran lebar dua kolom lainnya dideklarasikan dengan <code class="highlighter-rouge">1fr</code>. Maka, dengan ruang kosong yang tersisa <code class="highlighter-rouge">400px</code> (<code class="highlighter-rouge">500px-100px</code>), dua kolom yang dideklarasikan dengan <code class="highlighter-rouge">1fr</code> tersebut masing-masing akan berukuran lebar sama dengan <code class="highlighter-rouge">200px</code> (<code class="highlighter-rouge">400px/2</code>).</p>
+
+<p data-height="300" data-theme-id="12948" data-slug-hash="JMWeZx" data-default-tab="result" data-user="arkhlima" data-embed-version="2" data-pen-title="Grid Demo #6 (blogging purpose)" class="codepen"></p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">grid-template-columns</span><span class="o">:</span> <span class="nt">100px</span> <span class="nt">1fr</span> <span class="nt">1fr</span><span class="o">;</span>
+</code></pre></div></div>
+
+<p data-height="300" data-theme-id="12948" data-slug-hash="rpyRXq" data-default-tab="result" data-user="arkhlima" data-embed-version="2" data-pen-title="Grid Demo #7 (blogging purpose)" class="codepen"></p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">grid-template-columns</span><span class="o">:</span> <span class="nt">1fr</span> <span class="nt">40</span><span class="o">%</span> <span class="nt">40</span><span class="o">%;</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="resources">Resources</h2>
+
+<ul>
+  <li><a href="https://gridbyexample.com/video/series-the-fr-unit/">The Fr Unit — <strong>Grid by Example</strong></a></li>
+  <li><a href="https://www.w3.org/TR/css-grid-1/#fr-unit">Flexible Lengths: the fr unit — <strong>W3</strong></a></li>
+</ul>
+
+	</div>
+</article>
+	</main>
+	<footer class="footer relative flex justify-center ph3 ph4-ns mw7 mv6 center">
+	<ul class="pa0 ma0 flex">
+		<li class="mh3 ">
+			<a class="light-main db grow-large" href="https://codepen.io/arkhlima" title="arkhlima" target="_blank"
+			 rel="noopener noreferrer"><svg aria-labelledby="simpleicons-codepen-icon" fill="currentColor" role="img" width="32" height="32" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title id="simpleicons-codepen-icon">CodePen icon</title><path d="M24 8.182l-.018-.087-.017-.05c-.01-.024-.018-.05-.03-.075-.003-.018-.015-.034-.02-.05l-.035-.067-.03-.05-.044-.06-.046-.045-.06-.045-.046-.03-.06-.044-.044-.04-.015-.02L12.58.19c-.347-.232-.796-.232-1.142 0L.453 7.502l-.015.015-.044.035-.06.05-.038.04-.05.056-.037.045-.05.06c-.02.017-.03.03-.03.046l-.05.06-.02.06c-.02.01-.02.04-.03.07l-.01.05C0 8.12 0 8.15 0 8.18v7.497c0 .044.003.09.01.135l.01.046c.005.03.01.06.02.086l.015.05c.01.027.016.053.027.075l.022.05c0 .01.015.04.03.06l.03.04c.015.01.03.04.045.06l.03.04.04.04c.01.013.01.03.03.03l.06.042.04.03.01.014 10.97 7.33c.164.12.375.163.57.163s.39-.06.57-.18l10.99-7.28.014-.01.046-.037.06-.043.048-.036.052-.058.033-.045.04-.06.03-.05.03-.07.016-.052.03-.077.015-.045.03-.08v-7.5c0-.05 0-.095-.016-.14l-.014-.045.044.003zm-11.99 6.28l-3.65-2.44 3.65-2.442 3.65 2.44-3.65 2.44zm-1.034-6.674l-4.473 2.99L2.89 8.362l8.086-5.39V7.79zm-6.33 4.233l-2.582 1.73V10.3l2.582 1.726zm1.857 1.25l4.473 2.99v4.82L2.89 15.69l3.618-2.417v-.004zm6.537 2.99l4.474-2.98 3.613 2.42-8.087 5.39v-4.82zm6.33-4.23l2.583-1.72v3.456l-2.583-1.73zm-1.855-1.24L13.042 7.8V2.97l8.085 5.39-3.612 2.415v.003z"></path></svg></a>
+		<li class="mh3 ">
+			<a class="light-main db grow-large" href="https://www.linkedin.com/in/khamil-aryansyah/" title="khamil-aryansyah" target="_blank"
+			 rel="noopener noreferrer"><svg aria-labelledby="simpleicons-linkedin-icon" fill="currentColor" role="img" width="32" height="32" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title id="simpleicons-linkedin-icon">LinkedIn icon</title><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path></svg></a>
+		<li class="mh3 ">
+			<a class="light-main db grow-large" href="https://github.com/arkhlima" title="arkhlima" target="_blank"
+			 rel="noopener noreferrer"><svg aria-labelledby="simpleicons-github-icon" fill="currentColor" role="img" width="32" height="32" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title id="simpleicons-github-icon">GitHub icon</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg></a>
+		<li class="mh3 ">
+			<a class="light-main db grow-large" href="https://twitter.com/arkhlima" title="@arkhlima" target="_blank"
+			 rel="noopener noreferrer"><svg aria-labelledby="simpleicons-twitter-icon" fill="currentColor" role="img" width="32" height="32" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title id="simpleicons-twitter-icon">Twitter icon</title><path d="M23.954 4.569c-.885.389-1.83.654-2.825.775 1.014-.611 1.794-1.574 2.163-2.723-.951.555-2.005.959-3.127 1.184-.896-.959-2.173-1.559-3.591-1.559-2.717 0-4.92 2.203-4.92 4.917 0 .39.045.765.127 1.124C7.691 8.094 4.066 6.13 1.64 3.161c-.427.722-.666 1.561-.666 2.475 0 1.71.87 3.213 2.188 4.096-.807-.026-1.566-.248-2.228-.616v.061c0 2.385 1.693 4.374 3.946 4.827-.413.111-.849.171-1.296.171-.314 0-.615-.03-.916-.086.631 1.953 2.445 3.377 4.604 3.417-1.68 1.319-3.809 2.105-6.102 2.105-.39 0-.779-.023-1.17-.067 2.189 1.394 4.768 2.209 7.557 2.209 9.054 0 13.999-7.496 13.999-13.986 0-.209 0-.42-.015-.63.961-.689 1.8-1.56 2.46-2.548l-.047-.02z"></path></svg></a>
+		</li>
+	</ul>
+</footer> <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="id" class="bg-main">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="robots" content="index,follow">
+
+	<title>CSS Grid Terminology — Khamil Aryansyah</title>
+	<meta name="description" content="Sebelumnya kita pernah berkutat dengan table, float, inline-block, dan Flexbox untuk membuat sebuah grid layout di web. But now, let&#039;s give this CSS Gri...">
+
+	<meta property="og:locale" content="en_US">
+	<meta property="og:site_name" content="Khamil Aryansyah">
+	<meta property="og:type" content="article">
+	<meta name="twitter:image" content="/assets/img/css-grid-terminology/wall-hydrant.jpg">
+	<meta property="og:url" content="https://arkhlima.github.io/css-grid-terminology/">
+	<meta property="og:title" content="CSS Grid Terminology">
+	<meta property="og:description" content="Sebelumnya kita pernah berkutat dengan table, float, inline-block, dan Flexbox untuk membuat sebuah grid layout di web. But now, let&#039;s give this CSS Gri...">
+
+	<meta name="twitter:card" content="summary-large">
+	<meta name="twitter:image" content="/assets/img/css-grid-terminology/wall-hydrant.jpg">
+	<meta name="twitter:site" content="@arkhlima">
+	<meta name="twitter:url" content="https://arkhlima.github.io/css-grid-terminology/">
+	<meta name="twitter:title" content="CSS Grid Terminology">
+	<meta name="twitter:description" content="Sebelumnya kita pernah berkutat dengan table, float, inline-block, dan Flexbox untuk membuat sebuah grid layout di web. But now, let&#039;s give this CSS Gri...">
+
+	<meta name="theme-color" content="#22292f" />
+
+	<link rel="shortcut icon" href="https://arkhlima.github.io/assets/img/icon.png">
+
+	<link rel="stylesheet" href="/assets/css/main.min.css">
+
+	<link rel="canonical" href="https://arkhlima.github.io/css-grid-terminology/">
+	<link rel="alternate" type="application/rss+xml" title="Khamil Aryansyah" href="/%20/feed.xml">
+</head>
+
+<body class="ff1 dust f4 lh-copy site xyz">
+	
+	<main class="content mw7 center ph3 ph4-ns">
+		
+<nav class="nav z-999 mw7 inline-flex fixed" style="top:3rem;">
+	<a class="spectrum-l glow grow-large sun-small br-100" href="/"></a>
+</nav>
+ 
+		<article class="article" itemscope itemtype="http://schema.org/Article">
+	<meta itemprop="datePublished" content="2017-03-30">
+	<meta itemprop="author" content="Khamil Aryansyah">
+	<meta itemprop="headline" content="CSS Grid Terminology">
+	
+<header class="article-header header relative mv6 tl">
+	
+	<time class="article-time ff2 fw7 f5 ttu light-main" datetime="2017-03-30T00:00:00+07:00" itemprop="datePublished">Mar 30 2017</time>
+	
+	<h1 class="article-title spectrum-o main nb3 mt3 f-5 lh-solid">CSS Grid Terminology</h1>
+</header>
+
+	
+	<figure class="article-featured mv5 center">
+		<img class="article-featured-img prst1" src="/assets/img/css-grid-terminology/wall-hydrant.jpg" alt="Wall Hydrant" />
+	</figure>
+	
+	<div class="article-body relative mb6" data-first="S" itemprop="articleBody">
+		<p>Sebelumnya kita pernah berkutat dengan <code class="highlighter-rouge">table</code>, <code class="highlighter-rouge">float</code>, <code class="highlighter-rouge">inline-block</code>, dan Flexbox untuk membuat sebuah grid layout di web. But now, let’s give this CSS Grid a shot!</p>
+
+<h2 id="whats-css-grid">What’s CSS Grid?</h2>
+<p><strong>CSS Grid</strong> adalah CSS layout module yang akan memudahkan kita dalam membuat layout dua dimensi di web dengan mendefinisikan baris dan kolom.</p>
+
+<h3 id="whats-the-difference-with-flexbox">What’s the difference with Flexbox?</h3>
+<blockquote>
+  <p>If you only need to define a layout as a row or a column, and you would like the flexibility to respond to the content of that row then you probably want <strong>flexbox</strong>. If you want to define a grid and fit content into it in two dimensions — you need <strong>grid</strong>.</p>
+
+  <p><cite class="fs-normal tr"><a href="http://gridbyexample.com/what/#grid-or-flexbox">Rachel Andrew</a></cite></p>
+</blockquote>
+
+<p>Intinya, ketika ingin lebih efisien dalam membuat layout dua dimensi (<strong>baris dan kolom</strong>), maka disarankan untuk menggunakan <strong>CSS Grid</strong>. Namun, jika hanya untuk membuat layout satu dimensi (<strong>baris atau kolom</strong>), maka gunakan <strong>Flexbox.</strong></p>
+
+<h3 id="so-which-is-better">So which is better?</h3>
+<p>Relatif, karena baik CSS Grid maupun Flexbox dapat menjadi silver bullet dalam suatu studi kasus yang berbeda. Atau bisa juga mengkombinasikan keduanya, CSS Grid untuk mendefinisikan layout, dan Flexbox untuk mengatur alignment konten di dalamnya. And for the sake of cross-browser compatibility, Flexbox dapat dimanfaatkan sebagai fallback untuk CSS Grid.</p>
+
+<p>Sehingga, yang lebih baik itu adalah mengkombinasikan keduanya untuk menghasilkan layout yang magical dan powerful 😉</p>
+
+<hr />
+
+<h2 id="terminology">Terminology</h2>
+<ul>
+  <li><a href="#grid-container--grid-item">Grid Container &amp; Grid Item</a></li>
+  <li><a href="#grid-line">Grid Line</a></li>
+  <li><a href="#grid-track">Grid Track (Grid Column &amp; Grid Row)</a></li>
+  <li><a href="#grid-cell">Grid Cell</a></li>
+  <li><a href="#grid-area">Grid Area</a></li>
+</ul>
+
+<h3 id="grid-container--grid-item">Grid Container &amp; Grid Item</h3>
+<p>Dalam membuat sebuah grid, dibutuhkan <strong>grid container</strong> (parent element) yang nantinya akan menampung atau berisikan seluruh <strong>grid item</strong> (child element) di dalamnya.</p>
+
+<figure class="w-100 w-75-ns center ba bw1 b--light-main">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340.157 255.118"><g stroke="#0adeff"><path fill="none" d="M42.52 42.51h255.118v170.08H42.52z" /><path d="M127.56 42.51v170.08m85.038-170.08v170.08M42.52 127.55h255.118" stroke-dasharray="3,3,3,3" /></g><g fill="#ffd642" font-family="Overpass" font-size="13"><text transform="translate(229.41 174.433)">grid item</text><text transform="translate(144.37 174.433)">grid item</text><text transform="translate(59.332 174.433)">grid item</text><text transform="translate(229.41 89.394)">grid item</text><text transform="translate(144.37 89.394)">grid item</text><text transform="translate(59.332 89.395)">grid item</text><text transform="translate(217.647 32.71)">grid container</text><animate attributeName="fill" values="#ffd642;#ffd642;transparent;#ffd642;#ffd642;" dur="1.5s" repeatCount="indefinite" /></g><path fill="none" stroke="#ffd642" d="M42.52 42.51h255.118v170.08H42.52z"><animate attributeName="stroke" values="#ffd642;#ffd642;transparent;#ffd642;#ffd642;" dur="1.5s" repeatCount="indefinite" /></path></svg>
+</figure>
+
+<p>Untuk mendeklarasikan grid container di CSS, cukup dengan set properti <code class="highlighter-rouge">display</code> dengan nilai <code class="highlighter-rouge">grid</code>.</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.grid-container</span> <span class="p">{</span>
+  <span class="nl">display</span><span class="p">:</span> <span class="n">grid</span> <span class="err">|</span> <span class="n">inline-grid</span> <span class="err">|</span> <span class="n">subgrid</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<ul>
+  <li><code class="highlighter-rouge">grid</code> — menghasilkan block-level grid container</li>
+  <li><code class="highlighter-rouge">inline-grid</code> — menghasilkan inline-level grid container</li>
+  <li><code class="highlighter-rouge">subgrid</code> — menghasilkan grid container yang juga merupakan grid item (di grid bersarang)</li>
+</ul>
+
+<hr />
+
+<h3 id="grid-line">Grid Line</h3>
+<p><strong>Grid line</strong> adalah garis vertikal dan horizontal yang membagi grid container menjadi beberapa bagian. Grid line terdiri dari dua set garis yang mendefinisikan kolom dan baris.</p>
+
+<figure class="w-100 w-75-ns center ba bw1 b--light-main">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340.157 255.118"><g stroke="#0adeff"><path fill="none" d="M42.52 42.51h255.118v170.08H42.52z" /><path d="M127.56 42.51v170.08m85.038-170.08v170.08M42.52 127.55h255.118" stroke-dasharray="3,3,3,3" /></g><g font-family="Overpass" font-size="13"><g fill="#ffd642"><text transform="translate(308.146 46.88)">1</text><text transform="translate(307.265 131.923)">2</text><text transform="translate(307.265 216.963)">3</text><text transform="translate(38.87 32.71)">1</text><text transform="translate(123.013 32.71)">2</text><text transform="translate(208.052 32.71)">3</text><text transform="translate(293.092 32.71)">4</text><animate attributeName="fill" values="#ffd642;#ffd642;transparent;#ffd642;#ffd642;" dur="1.25s" repeatCount="indefinite" /></g><g fill="#f8f8f8"><text transform="rotate(90 110.56 212)">row lines</text><text transform="translate(134.366 16.182)">column lines</text></g></g></svg>
+</figure>
+
+<p>Secara default, setiap grid line diwakili sebuah nomor yang digunakan untuk menentukan posisi dan luas suatu grid item di dalam grid container.</p>
+
+<figure class="w-100 w-75-ns center ba bw1 b--light-main">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340.157 255.118"><g stroke="#0adeff"><path fill="none" d="M42.52 42.51h255.118v170.08H42.52z" /><path d="M127.56 42.51v170.08m85.038-170.08v170.08M42.52 127.55h255.118" stroke-dasharray="3,3,3,3" /></g><g font-family="Overpass" font-size="13"><g fill="#0adeff"><text transform="translate(308.146 46.88)">1</text><text transform="translate(307.265 131.923)">2</text><text transform="translate(307.265 216.963)">3</text><text transform="translate(38.87 32.715)">1</text><text transform="translate(123.013 32.71)">2</text><text transform="translate(208.052 32.71)">3</text><text transform="translate(293.092 32.71)">4</text></g><g fill="#f8f8f8"><text transform="translate(250.768 174.433)">a</text><text transform="translate(165.763 174.433)">c</text><text transform="translate(80.383 174.433)">b</text><text transform="translate(250.598 89.394)">e</text><text transform="translate(165.422 89.394)">d</text><text transform="translate(81.926 89.403)">f</text><text transform="rotate(90 110.56 212)">row lines</text><text transform="translate(134.366 16.182)">column lines</text></g></g></svg>
+</figure>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.grid-container</span> <span class="p">{</span>
+  <span class="nl">display</span><span class="p">:</span> <span class="n">grid</span><span class="p">;</span>
+  <span class="py">grid-template-columns</span><span class="p">:</span> <span class="m">100px</span> <span class="m">100px</span> <span class="m">100px</span><span class="p">;</span>
+  <span class="py">grid-template-rows</span><span class="p">:</span> <span class="m">100px</span> <span class="m">100px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.a</span> <span class="p">{</span>
+  <span class="py">grid-column-start</span><span class="p">:</span> <span class="m">3</span><span class="p">;</span>
+  <span class="py">grid-column-end</span><span class="p">:</span> <span class="m">4</span><span class="p">;</span>
+  <span class="py">grid-row-start</span><span class="p">:</span> <span class="m">2</span><span class="p">;</span>
+  <span class="py">grid-row-end</span><span class="p">:</span> <span class="m">3</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.b</span> <span class="p">{</span>
+  <span class="nl">grid-column</span><span class="p">:</span> <span class="m">1</span> <span class="p">/</span> <span class="m">2</span><span class="p">;</span>
+  <span class="nl">grid-row</span><span class="p">:</span> <span class="m">2</span> <span class="p">/</span> <span class="m">3</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.c</span> <span class="p">{</span>
+  <span class="nl">grid-column</span><span class="p">:</span> <span class="m">2</span> <span class="p">/</span> <span class="m">3</span><span class="p">;</span>
+  <span class="nl">grid-row</span><span class="p">:</span> <span class="m">2</span> <span class="p">/</span> <span class="m">3</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.d</span> <span class="p">{</span>
+  <span class="nl">grid-column</span><span class="p">:</span> <span class="m">2</span> <span class="p">/</span> <span class="m">3</span><span class="p">;</span>
+  <span class="nl">grid-row</span><span class="p">:</span> <span class="m">1</span> <span class="p">/</span> <span class="m">2</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.e</span> <span class="p">{</span>
+  <span class="nl">grid-column</span><span class="p">:</span> <span class="m">3</span> <span class="p">/</span> <span class="m">4</span><span class="p">;</span>
+  <span class="nl">grid-row</span><span class="p">:</span> <span class="m">1</span> <span class="p">/</span> <span class="m">2</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.f</span> <span class="p">{</span>
+  <span class="nl">grid-column</span><span class="p">:</span> <span class="m">1</span> <span class="p">/</span> <span class="m">2</span><span class="p">;</span>
+  <span class="nl">grid-row</span><span class="p">:</span> <span class="m">1</span> <span class="p">/</span> <span class="m">2</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Selain menggunakan nomor, grid line juga dapat diwakili oleh sebuah inisialisasi nama. Contohnya seperti column line 1 dideklarasikan dengan <code class="highlighter-rouge">cl1</code>, column line 2 dengan <code class="highlighter-rouge">cl2</code>, column line 3 dengan <code class="highlighter-rouge">cl3</code>, dan column line 4 dengan <code class="highlighter-rouge">cl4</code>.</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.grid-container</span> <span class="p">{</span>
+  <span class="nl">display</span><span class="p">:</span> <span class="n">grid</span><span class="p">;</span>
+  <span class="py">grid-template-columns</span><span class="p">:</span> <span class="p">[</span><span class="n">cl1</span><span class="p">]</span> <span class="m">100px</span> <span class="p">[</span><span class="n">cl2</span><span class="p">]</span> <span class="m">100px</span> <span class="p">[</span><span class="n">cl3</span><span class="p">]</span> <span class="m">100px</span> <span class="p">[</span><span class="n">cl4</span><span class="p">];</span>
+  <span class="py">grid-template-rows</span><span class="p">:</span> <span class="m">100px</span> <span class="m">100px</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.a</span> <span class="p">{</span>
+  <span class="py">grid-column-start</span><span class="p">:</span> <span class="n">cl1</span><span class="p">;</span>  <span class="c">/* artinya, posisi dan luas grid item ini adalah dari */</span>
+  <span class="py">grid-column-end</span><span class="p">:</span> <span class="n">cl3</span><span class="p">;</span>    <span class="c">/* column line 1 [cl1] s.d. column line 3 [cl3] */</span>
+  <span class="py">grid-row-start</span><span class="p">:</span> <span class="m">1</span><span class="p">;</span>
+  <span class="py">grid-row-end</span><span class="p">:</span> <span class="m">2</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.b</span> <span class="p">{</span>
+  <span class="py">grid-column-start</span><span class="p">:</span> <span class="n">cl1</span><span class="p">;</span> 
+  <span class="c">/* grid-column-end tidak dideklarasikan */</span>
+  <span class="py">grid-row-start</span><span class="p">:</span> <span class="m">2</span><span class="p">;</span>
+  <span class="py">grid-row-end</span><span class="p">:</span> <span class="m">3</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Jika properti <code class="highlighter-rouge">grid-column-end</code> atau <code class="highlighter-rouge">grid-row-end</code> tidak dideklarasikan di dalam suatu grid item, maka otomatis luas grid item tersebut hanya satu jangkauan column line atau row line berdasarkan <code class="highlighter-rouge">grid-column-start</code> atau <code class="highlighter-rouge">grid-row-start</code> yang telah dideklarasikan. Berlaku juga sebaliknya.</p>
+
+<figure class="w-100 w-75-ns center ba bw1 b--light-main">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340.157 255.118"><g stroke="#0adeff"><path fill="none" d="M42.52 42.51h255.118v170.08H42.52z" /><path d="M127.56 42.51v170.08m85.038-170.08v170.08M42.52 127.55h255.118" stroke-dasharray="3,3,3,3" /></g><path fill="#0adeff" fill-opacity=".3" d="M42.52 42.51H212.6v85.04H42.52zm0 85.04h85.04v85.04H42.52z" /><g font-size="13" font-family="Overpass"><g fill="#0adeff"><text transform="translate(308.146 46.88)">1</text><text transform="translate(307.265 131.923)">2</text><text transform="translate(307.265 216.963)">3</text><text transform="translate(38.87 32.715)">1</text><text transform="translate(123.013 32.71)">2</text><text transform="translate(208.052 32.71)">3</text><text transform="translate(293.092 32.71)">4</text></g><g fill="#f8f8f8"><text transform="translate(123.21 89.38)">a</text><text transform="translate(80.383 174.426)">b</text><text transform="translate(134.366 16.182)">column lines</text><text transform="rotate(90 110.56 212)">row lines</text></g></g></svg>
+</figure>
+
+<p>Lalu bagaimana jika baik properti <code class="highlighter-rouge">grid-column-start</code> dan <code class="highlighter-rouge">grid-column-end</code> atau <code class="highlighter-rouge">grid-row-start</code> dan <code class="highlighter-rouge">grid-row-end</code> tidak dideklarasikan? 😉</p>
+
+<hr />
+
+<h3 id="grid-track">Grid Track</h3>
+<p><strong>Grid track</strong> adalah ruang yang diapit oleh dua grid line yang berdampingan. Suatu grid track disebut <strong>grid column</strong> jika diapit oleh dua grid line kolom (vertikal), sedangkan yang diapit oleh dua grid line baris (horizontal) disebut <strong>grid row</strong>.</p>
+
+<p>Di bawah ini merupakan contoh grid track (grid column) di antara grid line kolom 2 dan 3.</p>
+
+<figure class="w-100 w-75-ns center ba bw1 b--light-main">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340.157 255.118"><g stroke="#0adeff"><path fill="none" d="M42.52 42.51h255.118v170.08H42.52z" /><path d="M127.56 42.51v170.08m85.038-170.08v170.08M42.52 127.55h255.118" stroke-dasharray="3,3,3,3" /></g><path stroke="#ffd642" d="M127.56 42.51v170.08m85.038-170.08v170.08"><animate attributeName="stroke" values="#ffd642;#ffd642;transparent;#ffd642;#ffd642;" dur="1.5s" repeatCount="indefinite" /></path><path fill="#ffd642" fill-opacity=".3" d="M127.56 42.52h85.038v170.07h-85.04z"><animate attributeName="fill" values="#ffd642;#ffd642;transparent;#ffd642;#ffd642;" dur="1.5s" repeatCount="indefinite" /></path><g fill="#0adeff" font-size="13" font-family="Overpass"><text transform="translate(308.146 46.88)">1</text><text transform="translate(307.265 131.923)">2</text><text transform="translate(307.265 216.963)">3</text><text transform="translate(38.87 32.715)">1</text><text transform="translate(123.013 32.71)">2</text><text transform="translate(208.052 32.71)">3</text><text transform="translate(293.092 32.71)">4</text></g></svg>
+</figure>
+
+<h4 id="grid-column--grid-row">Grid Column &amp; Grid Row</h4>
+<p>Untuk menentukan jumlah grid column dan grid row berikut masing-masing ukurannya di dalam suatu grid container, gunakan properti <code class="highlighter-rouge">grid-template-columns</code> dan <code class="highlighter-rouge">grid-template-rows</code>.</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.grid-container</span> <span class="p">{</span>
+  <span class="nl">display</span><span class="p">:</span> <span class="n">grid</span><span class="p">;</span>
+  <span class="py">grid-template-columns</span><span class="p">:</span> <span class="m">100px</span> <span class="m">100px</span> <span class="m">100px</span><span class="p">;</span> <span class="c">/* artinya 3 kolom dengan ukuran 100px */</span>
+  <span class="py">grid-template-rows</span><span class="p">:</span> <span class="m">100px</span> <span class="m">100px</span><span class="p">;</span>          <span class="c">/* artinya 2 baris dengan ukuran 100px */</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<hr />
+
+<h3 id="grid-cell">Grid Cell</h3>
+<p><strong>Grid cell</strong> adalah ruang yang dikelilingi oleh empat grid line (dua grid line kolom dan baris) yang saling terhubung. Di bawah ini merupakan contoh grid cell yang terletak di antara grid line kolom 3 dan 4 dengan grid line baris 2 dan 3.</p>
+
+<figure class="w-100 w-75-ns center ba bw1 b--light-main">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340.157 255.118"><g stroke="#0adeff"><path fill="none" d="M42.52 42.51h255.118v170.08H42.52z" /><path d="M127.56 42.51v170.08m85.038-170.08v170.08M42.52 127.55h255.118" stroke-dasharray="3,3,3,3" /></g><path fill="#ffd642" fill-opacity=".3" stroke="#ffd642" d="M212.598 127.557h85.04v85.033h-85.04z"><animate attributeName="fill" values="#ffd642;#ffd642;transparent;#ffd642;#ffd642;" dur="1.5s" repeatCount="indefinite" /><animate attributeName="stroke" values="#ffd642;#ffd642;transparent;#ffd642;#ffd642;" dur="1.5s" repeatCount="indefinite" /></path><g fill="#0adeff" font-size="13" font-family="Overpass"><text transform="translate(308.146 46.88)">1</text><text transform="translate(307.265 131.923)">2</text><text transform="translate(307.265 216.963)">3</text><text transform="translate(38.87 32.715)">1</text><text transform="translate(123.013 32.71)">2</text><text transform="translate(208.052 32.71)">3</text><text transform="translate(293.092 32.71)">4</text></g></svg>
+</figure>
+
+<hr />
+
+<h3 id="grid-area">Grid Area</h3>
+<p>Konsep <strong>grid area</strong> ini sebenarnya mirip seperti <strong>grid cell</strong>, bedanya adalah bahwa grid area ini dapat terdiri lebih dari satu ruang yang dikelilingi oleh empat grid line (dua grid line kolom dan baris) yang saling terhubung.</p>
+
+<figure class="w-100 w-75-ns center ba bw1 b--light-main">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340.157 255.118"><g stroke="#0adeff"><path fill="none" d="M42.52 42.51h255.118v170.08H42.52z" /><path d="M127.56 42.51v170.08m85.038-170.08v170.08M42.52 127.55h255.118" stroke-dasharray="3,3,3,3" /></g><path fill="#ffd642" fill-opacity=".3" stroke="#ffd642" d="M42.52 42.503H212.6v170.08H42.52z"><animate attributeName="fill" values="#ffd642;#ffd642;transparent;#ffd642;#ffd642;" dur="1.5s" repeatCount="indefinite" /><animate attributeName="stroke" values="#ffd642;#ffd642;transparent;#ffd642;#ffd642;" dur="1.5s" repeatCount="indefinite" /></path><g fill="#0adeff" font-size="13" font-family="Overpass"><text transform="translate(308.146 46.88)">1</text><text transform="translate(307.265 131.923)">2</text><text transform="translate(307.265 216.963)">3</text><text transform="translate(38.87 32.715)">1</text><text transform="translate(123.013 32.71)">2</text><text transform="translate(208.052 32.71)">3</text><text transform="translate(293.092 32.71)">4</text></g></svg>
+</figure>
+
+<p>Selain menentukan posisi dan luas suatu grid item dengan memanfaatkan nomor ataupun nama yang mewakili setiap grid line, grid area pun dapat dimanfaatkan untuk hal serupa.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid-container"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid-item a"</span><span class="nt">&gt;</span>header<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid-item b"</span><span class="nt">&gt;</span>content<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid-item c"</span><span class="nt">&gt;</span>sidebar<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid-item d"</span><span class="nt">&gt;</span>footer<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div>
+
+<p>Kita dapat menggunakan properti <code class="highlighter-rouge">grid-area</code> dengan inisialisasi nama untuk mendeklarasikan nama grid area di setiap grid item.</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.a</span> <span class="p">{</span>
+  <span class="py">grid-area</span><span class="p">:</span> <span class="n">header</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.b</span> <span class="p">{</span>
+  <span class="py">grid-area</span><span class="p">:</span> <span class="n">content</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.c</span> <span class="p">{</span>
+  <span class="py">grid-area</span><span class="p">:</span> <span class="n">sidebar</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.d</span> <span class="p">{</span>
+  <span class="py">grid-area</span><span class="p">:</span> <span class="n">footer</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Setelah seluruh grid item telah memiliki nama grid area, maka gunakan properti <code class="highlighter-rouge">grid-template-areas</code> untuk menentukan posisi dan luas dari setiap grid area tersebut.</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.grid-container</span> <span class="p">{</span>
+  <span class="nl">display</span><span class="p">:</span> <span class="n">grid</span><span class="p">;</span>
+  <span class="py">grid-template-columns</span><span class="p">:</span> <span class="m">100px</span> <span class="m">100px</span> <span class="m">100px</span><span class="p">;</span>
+  <span class="py">grid-template-rows</span><span class="p">:</span> <span class="m">100px</span> <span class="m">100px</span> <span class="m">100px</span><span class="p">;</span>
+  <span class="py">grid-template-areas</span><span class="p">:</span> <span class="s1">"header header header"</span>     <span class="c">/* | header  | header  | header  | */</span>
+                       <span class="s1">"content content sidebar"</span>  <span class="c">/* | content | content | sidebar | */</span>
+                       <span class="s1">"footer footer footer"</span><span class="p">;</span>    <span class="c">/* | footer  | footer  | footer  | */</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<figure class="w-100 w-75-ns center ba bw1 b--light-main">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 311.811 311.811"><g stroke="#0adeff"><path fill="none" d="M28.346 28.346h255.118v255.118H28.346z" /><path d="M113.386 28.346v255.12m85.04-255.12v255.12m-170.08-170.08h255.12m-255.12 85.04h255.12" stroke-dasharray="3,3,3,3" /></g><g fill-opacity=".3"><path fill="#f06090" d="M28.346 28.346h255.118v85.04H28.346z" /><path fill="#0adeff" d="M28.346 198.425h255.118v85.04H28.346z" /><path fill="#00e677" d="M28.346 113.386h170.08v85.04H28.346z" /><path fill="#ffd642" d="M198.425 113.386h85.04v85.04h-85.04z" /></g><g fill="#f7f7f7" font-family="Overpass" font-size="12"><text transform="translate(135.15 75.23)">header</text><text transform="translate(90.874 160.27)">content</text><text transform="translate(219.03 160.27)">sidebar</text><text transform="translate(137.808 245.308)">footer</text></g></svg>
+</figure>
+
+<hr />
+
+<h2 id="resources">Resources</h2>
+<p>Karena tulisan ini hanya membahas terminologi dari CSS Grid saja, sehingga masih banyak konsep, aturan, properti, dan lainnya dari CSS Grid yang tidak dibahas di sini.</p>
+
+<p>Oleh karena itu, berikut beberapa resources bagi yang tertarik untuk mendalami CSS Grid.</p>
+
+<ul>
+  <li><a href="http://gridbyexample.com/">Grid by Example</a></li>
+  <li><a href="https://rachelandrew.co.uk/archives/">Rachel Andrew’s Blog</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout">CSS Grid Layout — <strong>MDN</strong></a></li>
+  <li><a href="http://labs.jensimmons.com/">The Experimental Layout Lab of Jen Simmons</a></li>
+  <li><a href="http://blogs.igalia.com/mrego/2016/02/01/deep-dive-into-grid-layout-placement/">Deep Dive into Grid Layout Placement — <strong>Manuel Rego</strong></a></li>
+</ul>
+
+	</div>
+</article>
+	</main>
+	<footer class="footer relative flex justify-center ph3 ph4-ns mw7 mv6 center">
+	<ul class="pa0 ma0 flex">
+		<li class="mh3 ">
+			<a class="light-main db grow-large" href="https://codepen.io/arkhlima" title="arkhlima" target="_blank"
+			 rel="noopener noreferrer"><svg aria-labelledby="simpleicons-codepen-icon" fill="currentColor" role="img" width="32" height="32" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title id="simpleicons-codepen-icon">CodePen icon</title><path d="M24 8.182l-.018-.087-.017-.05c-.01-.024-.018-.05-.03-.075-.003-.018-.015-.034-.02-.05l-.035-.067-.03-.05-.044-.06-.046-.045-.06-.045-.046-.03-.06-.044-.044-.04-.015-.02L12.58.19c-.347-.232-.796-.232-1.142 0L.453 7.502l-.015.015-.044.035-.06.05-.038.04-.05.056-.037.045-.05.06c-.02.017-.03.03-.03.046l-.05.06-.02.06c-.02.01-.02.04-.03.07l-.01.05C0 8.12 0 8.15 0 8.18v7.497c0 .044.003.09.01.135l.01.046c.005.03.01.06.02.086l.015.05c.01.027.016.053.027.075l.022.05c0 .01.015.04.03.06l.03.04c.015.01.03.04.045.06l.03.04.04.04c.01.013.01.03.03.03l.06.042.04.03.01.014 10.97 7.33c.164.12.375.163.57.163s.39-.06.57-.18l10.99-7.28.014-.01.046-.037.06-.043.048-.036.052-.058.033-.045.04-.06.03-.05.03-.07.016-.052.03-.077.015-.045.03-.08v-7.5c0-.05 0-.095-.016-.14l-.014-.045.044.003zm-11.99 6.28l-3.65-2.44 3.65-2.442 3.65 2.44-3.65 2.44zm-1.034-6.674l-4.473 2.99L2.89 8.362l8.086-5.39V7.79zm-6.33 4.233l-2.582 1.73V10.3l2.582 1.726zm1.857 1.25l4.473 2.99v4.82L2.89 15.69l3.618-2.417v-.004zm6.537 2.99l4.474-2.98 3.613 2.42-8.087 5.39v-4.82zm6.33-4.23l2.583-1.72v3.456l-2.583-1.73zm-1.855-1.24L13.042 7.8V2.97l8.085 5.39-3.612 2.415v.003z"></path></svg></a>
+		<li class="mh3 ">
+			<a class="light-main db grow-large" href="https://www.linkedin.com/in/khamil-aryansyah/" title="khamil-aryansyah" target="_blank"
+			 rel="noopener noreferrer"><svg aria-labelledby="simpleicons-linkedin-icon" fill="currentColor" role="img" width="32" height="32" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title id="simpleicons-linkedin-icon">LinkedIn icon</title><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path></svg></a>
+		<li class="mh3 ">
+			<a class="light-main db grow-large" href="https://github.com/arkhlima" title="arkhlima" target="_blank"
+			 rel="noopener noreferrer"><svg aria-labelledby="simpleicons-github-icon" fill="currentColor" role="img" width="32" height="32" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title id="simpleicons-github-icon">GitHub icon</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg></a>
+		<li class="mh3 ">
+			<a class="light-main db grow-large" href="https://twitter.com/arkhlima" title="@arkhlima" target="_blank"
+			 rel="noopener noreferrer"><svg aria-labelledby="simpleicons-twitter-icon" fill="currentColor" role="img" width="32" height="32" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title id="simpleicons-twitter-icon">Twitter icon</title><path d="M23.954 4.569c-.885.389-1.83.654-2.825.775 1.014-.611 1.794-1.574 2.163-2.723-.951.555-2.005.959-3.127 1.184-.896-.959-2.173-1.559-3.591-1.559-2.717 0-4.92 2.203-4.92 4.917 0 .39.045.765.127 1.124C7.691 8.094 4.066 6.13 1.64 3.161c-.427.722-.666 1.561-.666 2.475 0 1.71.87 3.213 2.188 4.096-.807-.026-1.566-.248-2.228-.616v.061c0 2.385 1.693 4.374 3.946 4.827-.413.111-.849.171-1.296.171-.314 0-.615-.03-.916-.086.631 1.953 2.445 3.377 4.604 3.417-1.68 1.319-3.809 2.105-6.102 2.105-.39 0-.779-.023-1.17-.067 2.189 1.394 4.768 2.209 7.557 2.209 9.054 0 13.999-7.496 13.999-13.986 0-.209 0-.42-.015-.63.961-.689 1.8-1.56 2.46-2.548l-.047-.02z"></path></svg></a>
+		</li>
+	</ul>
+</footer> 
+</body>
+
+</html>
